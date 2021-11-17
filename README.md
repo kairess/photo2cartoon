@@ -1,7 +1,3 @@
-<div align='center'>
-  <img src='./images/title.png'>
-</div>
-
 # Video to Cartoon
 
 aespa Karina [Original video](images/output.mp4)
@@ -14,6 +10,11 @@ aespa Karina [Original video](images/output.mp4)
 python video.py
 ```
 
+---
+
+<div align='center'>
+  <img src='./images/title.png'>
+</div>
 
 # Photo to Cartoon
 

@@ -48,6 +48,9 @@ c2p = Photo2Cartoon()
 
 cap = cv2.VideoCapture('images/karina.mp4')
 
+fourcc = cv2.VideoWriter_fourcc('m', 'p', '4', 'v')
+out = cv2.VideoWriter('images/output.mp4', fourcc, cap.get(cv2.CAP_PROP_FPS), (256, 256))
+
 while cap.isOpened():
     ret, img = cap.read()
     if not ret:
@@ -56,8 +59,14 @@ while cap.isOpened():
     img_input = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     cartoon = c2p.inference(img_input)
 
+    if cartoon is None:
+        continue
+
     cv2.imshow('img', img)
     cv2.imshow('result', cartoon)
+    out.write(cartoon)
 
     if cv2.waitKey(1) == ord('q'):
         break
+
+out.release()
